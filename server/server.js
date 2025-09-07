@@ -15,7 +15,7 @@ const server = http.createServer(app);
 // Initialize Socket.IO server with dynamic CORS
 export const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://real-time-chat-app-omega-blond.vercel.app",
+    origin:process.env.FRONTEND_URL || "https://real-time-chat-app-omega-blond.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
