@@ -42,7 +42,7 @@ io.on("connection",(socket)=>{
 //middleware setup
 app.use(express.json({limit:"4mb"}));
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin:  process.env.FRONTEND_URL,
   credentials: true
 }));
 
