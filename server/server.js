@@ -42,7 +42,7 @@ io.on("connection",(socket)=>{
 //middleware setup
 app.use(express.json({limit:"4mb"}));
 app.use(cors({
-  origin:  process.env.FRONTEND_URL,
+  origin:  process.env.FRONTEND_URL || "https://real-time-chat-app-omega-blond.vercel.app",
   credentials: true
 }));
 
