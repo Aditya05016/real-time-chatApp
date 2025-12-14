@@ -1,17 +1,21 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
+export const connectDB = async () => {
+  try {
+    const mongoURI = process.env.MONGODB_URI;
 
-// function to connect to the mongdb databases
-
-  export const connectDB = async () => {
-    try {
-        mongoose.connection.on('connected', ()=> console.log("Database connected"));
-        await mongoose.connect(process.env.MONGODB_URI,{
-         writeConcern: { w: 'majority' } 
-         } );               //pehel aisa tha(`${process.env.MONGODB_URI}/chat-app`)
-    } catch(error) {
-        console.log(error);
-         process.exit(1);
+    if (!mongoURI) {
+      throw new Error("MONGODB_URI is not defined");
     }
-}
+
+    await mongoose.connect(mongoURI, {
+      writeConcern: { w: "majority" },
+    });
+
+    console.log("Database connected");
+  } catch (error) {
+    console.error("Database connection error:", error.message);
+    process.exit(1);
+  }
+};
 
