@@ -2,12 +2,20 @@
 
 @import "tailwindcss";
 
+/* Base font */
 * {
-    font-family: "Outfit", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
-::-webkit-scrollbar{
-  display:none;
+/* Hide scrollbars (your existing code) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ IMPORTANT: global overflow fix */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
